@@ -4,13 +4,14 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from ..locators import *
-from .data import login_name_for_authorize_user, password_for_authorize_user
+from ..data import login_name_for_authorize_user, password_for_authorize_user
+from ..urls import main_page
 
 
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
-    driver.get("https://qa-desk.stand.praktikum-services.ru/")
+    driver.get(main_page)
     return driver
 
 
@@ -33,7 +34,6 @@ def driver_with_exists_account(driver):
     WebDriverWait(driver, 3).until(
         expected_conditions.visibility_of_element_located(BUTTON_EXIT)
     )
-    return driver
 
 
 @pytest.fixture
@@ -51,4 +51,3 @@ def driver_regist_new_account(driver):
     WebDriverWait(driver, 3).until(
         expected_conditions.visibility_of_element_located((MODAL_WINDOW_ENTER_LOCATOR))
     )
-    return driver

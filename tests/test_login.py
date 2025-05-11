@@ -1,17 +1,18 @@
+import pytest
 from ..locators import *
+from ..urls import login_page
 
 
-def test_register_exists_account(driver_with_exists_account):
+@pytest.mark.usefixtures("driver", "driver_with_exists_account")
+class TestLoginAccount:
+    def test_login(self, driver):
 
-    user_name = driver_with_exists_account.find_element(*USER_NAME_LOCATOR)
+        user_name = driver.find_element(*USER_NAME_LOCATOR)
 
-    user_avater = driver_with_exists_account.find_element(*USER_AVATAR_LOCATOR)
-    # Проверить: произошёл переход на главную страницу, отображается аватар пользователя и имя User.
-    assert (
-        driver_with_exists_account.current_url
-        == "https://qa-desk.stand.praktikum-services.ru/login"
-        and user_name.text == "User."
-        and user_avater.is_displayed()
-    )
-
-    driver_with_exists_account.quit()
+        user_avater = driver.find_element(*USER_AVATAR_LOCATOR)
+        # Проверить: произошёл переход на главную страницу, отображается аватар пользователя и имя User.
+        assert (
+            driver.current_url == login_page
+            and user_name.text == "User."
+            and user_avater.is_displayed()
+        )

@@ -6,36 +6,29 @@ REGISTRATION_BUTTON = (
     By.XPATH,
     "//*[@class='header_shell__zlCGj']/div/button[@class ='buttonSecondary inButtonText undefined inButtonText']",
 )
-DONT_HAVE_ACCOUNT_BUTTON = (
-    By.XPATH,
-    "//*[@id='root']/div/div[2]/div/form/div[3]/button[2]",
-)
+DONT_HAVE_ACCOUNT_BUTTON = (By.XPATH, "//button[contains(text(), 'Нет аккаунта')]")
 
-CREATE_ACCOUN_BUTTON = (By.XPATH, "//div[@class ='popUp_buttonRow__+W8JD']/button[1]")
-USER_NAME_LOCATOR = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div[1]/div/h3')
+CREATE_ACCOUN_BUTTON = (By.XPATH, "//button[contains(text(), 'Создать аккаунт')]")
+USER_NAME_LOCATOR = (By.CSS_SELECTOR, ".profileText")
 MODAL_WINDOW_ENTER_LOCATOR = (By.CLASS_NAME, "homePage_modal__zSdUB")
-BUTTON_EXIT = (By.XPATH, '//*[@class ="header_flexRow__Xdqv1"]/div/div/button')
+BUTTON_EXIT = (By.XPATH, "//button[contains(text(), 'Выйти')]")
 PASSWORD = (By.NAME, "password")
 SUBMIT_PASSWORD = (By.NAME, "submitPassword")
 EMAIL = (By.NAME, "email")
 USER_AVATAR_LOCATOR = (By.CSS_SELECTOR, ".circleSmall > svg")
 ERROR_LOCATOR = (By.CSS_SELECTOR, ".input_span__yWPqB")
 INPUT_ERROR = (By.CSS_SELECTOR, ".input_inputError__fLUP9")
-BUTTON_ENTER = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[1]')
-BUTTON_APPLY = (By.XPATH, "//form/div[2]/button")
+BUTTON_ENTER = (By.XPATH, "//button[contains(text(), 'Войти')]")
 BUTTON_ADD = (
     By.XPATH,
-    "//*[@class='header_shell__zlCGj']/div/button[@class ='buttonPrimary inButtonText undefined inButtonText']",
+    "//button[contains(text(), 'Разместить объявление')]",
 )
 MODAL_TITLE = (By.CLASS_NAME, "popUp_titleRow__M7tGg")
 MODAL_TITLE_TEXT = (
     By.XPATH,
-    "//form[@class='popUp_shell__LuyqR']/div[@class='popUp_titleRow__M7tGg']/h1",
+    "//div[@class='popUp_titleRow__M7tGg']/h1",
 )
-SUBMIT_BUTTON = (
-    By.XPATH,
-    "//form/button[@class='buttonPrimary inButtonText undefined inButtonText']",
-)
+SUBMIT_BUTTON = (By.XPATH, "//button[contains(text(), 'Опубликовать')]")
 NAME_FOR_PRODUCT_INPUT = (
     By.NAME,
     "name",
@@ -46,17 +39,20 @@ PRICE_INPUT = (
     "price",
 )
 
-RADIO_BUTTON = (By.XPATH, "//form/fieldset/div/div[2]/div")
+RADIO_BUTTON = (By.CSS_SELECTOR, ".radioUnput_inputRegular__FbVbr")
 
-DROPDOWN_CATEGORY = (By.XPATH, "//form/div[2]/div[2]/div[1]/button")
+DROPDOWN_CATEGORY = (By.XPATH, "//input[@name='category']/following-sibling::button")
 DROPDOWN_CATEGORY_GARDEN = (
     By.XPATH,
-    "//form/div[2]/div[2]/div[2]/button[3]",
+    "//button//span[text()='Садоводство']/parent::button",
 )
 
-DROPDOWN_CITY = (By.XPATH, "//form/div[3]/div[1]/button")
+DROPDOWN_CITY = (By.XPATH, "//input[@name='city']/following-sibling::button")
 
-DROPDOWN_CITY_EKATERINBURG = (By.XPATH, "//form/div[3]/div[2]/button[4]")
+DROPDOWN_CITY_EKATERINBURG = (
+    By.XPATH,
+    "//button//span[text()='Екатеринбург']/parent::button",
+)
 PROFILE_BUTTON = (By.CSS_SELECTOR, ".circleSmall")
 
 
@@ -64,8 +60,5 @@ def getProductsCard(name):
     return (By.XPATH, f"//img[contains(@alt, '{name}')]")
 
 
-WANT_BUY_INPUT = (By.XPATH, "/html/body/div/div/div[2]/form/div[1]/div/div/input")
-PROFILE_CARD_LIST_TITLE = (
-    By.XPATH,
-    '//*[@id="root"]/div/div[2]/div[4]/div/div[1]/div[1]',
-)
+WANT_BUY_INPUT = (By.XPATH, "//input[@placeholder='Я хочу купить...']")
+PROFILE_CARD_LIST_TITLE = (By.XPATH, "//div[contains(@class, 'card')]//h2")
