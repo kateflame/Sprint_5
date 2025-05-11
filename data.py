@@ -1,7 +1,7 @@
 import random
 
 # Данные для зарегестрированного пользователя
-login_name_for_authorize_user = "mel_test_123@gmail.ru"
+login_name_for_authorize_user = "mel_test_002@gmail.com"
 password_for_authorize_user = "Qwerty!"
 
 # Данные для нового пользователя: email, password, submitpassword

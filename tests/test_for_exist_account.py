@@ -5,9 +5,8 @@ from ..locators import *
 from ..data import *
 
 
-@pytest.mark.usefixtures("driver", "driver_regist_new_account")
-class TestExisiAccount:
-    def test_register_exists_account(self, driver):
+class TestExistAccount:
+    def test_register_exists_account(self, driver, driver_regist_new_account):
 
         # ввести email, password, submitpassword по существующему пользователю
         driver.find_element(*EMAIL).send_keys(login_name_for_authorize_user)

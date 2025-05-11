@@ -4,9 +4,8 @@ from selenium.webdriver.support import expected_conditions
 from ..locators import *
 
 
-@pytest.mark.usefixtures("driver", "driver_with_exists_account")
 class TestLogoutUser:
-    def test_register_exists_account(self, driver):
+    def test_logout_user(self, driver, driver_with_exists_account):
 
         # Нажать на кнопку Выйти
         driver.find_element(*BUTTON_EXIT).click()

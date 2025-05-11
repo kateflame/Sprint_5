@@ -5,9 +5,8 @@ from ..locators import *
 import random
 
 
-@pytest.mark.usefixtures("driver", "driver_with_exists_account")
 class TestCreateAdWithAuth:
-    def test_create_ad(self, driver):
+    def test_create_ad(self, driver, driver_with_exists_account):
 
         driver.find_element(*BUTTON_ADD).click()
 

@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions
 from ..locators import *
 
 
-@pytest.mark.usefixtures("driver")
 class TestCreateAdNonehAuth:
     def test_create_ad_without_avthorization(self, driver):
         # Нажать на кнопку Разместить объявление

@@ -8,9 +8,8 @@ from ..data import *
 from ..urls import register_page
 
 
-@pytest.mark.usefixtures("driver", "driver_regist_new_account")
 class TestRegistrationAccount:
-    def test_register(self, driver):
+    def test_register(self, driver, driver_regist_new_account):
 
         driver.find_element(*EMAIL).send_keys(user_name_new_user)
 

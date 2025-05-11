@@ -6,9 +6,8 @@ from ..locators import *
 from ..data import *
 
 
-@pytest.mark.usefixtures("driver", "driver_regist_new_account")
 class TestUncorrectMask:
-    def test_register_with_uncorrect_masks(self, driver):
+    def test_register_with_uncorrect_masks(self, driver, driver_regist_new_account):
         # ввести email, password, submitpassword
         driver.find_element(*EMAIL).send_keys(login_with_uncorrect_mask)
 

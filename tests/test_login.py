@@ -3,9 +3,8 @@ from ..locators import *
 from ..urls import login_page
 
 
-@pytest.mark.usefixtures("driver", "driver_with_exists_account")
 class TestLoginAccount:
-    def test_login(self, driver):
+    def test_login(self, driver, driver_with_exists_account):
 
         user_name = driver.find_element(*USER_NAME_LOCATOR)
 
